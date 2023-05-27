@@ -1,0 +1,21 @@
+networkrail:
+  target: networkrail
+
+  outputs:
+    dbt_firstnapat:
+      type: bigquery
+      method: service-account
+      project: aesthetic-kite-381909
+      dataset: networkrail
+      threads: 1
+      keyfile: /Users/napatsakornpianchana/Documents/project/End-to-End-Project-Network-Rail/07-end-to-end-project/dags/aesthetic-kite-381909-3752b14a3dbb-day3-gcs-bigquery.json
+      location: asia-southeast1
+
+    prod:
+      type: bigquery
+      method: service-account
+      project: aesthetic-kite-381909
+      dataset: networkrail
+      threads: 1
+      keyfile: /Users/napatsakornpianchana/Documents/project/End-to-End-Project-Network-Rail/07-end-to-end-project/dags/aesthetic-kite-381909-3752b14a3dbb-day3-gcs-bigquery.json
+      location: asia-southeast1

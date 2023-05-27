@@ -1,0 +1,22 @@
+[2023-05-27T03:40:15.850+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: networkrail_movements_to_gcs_and_then_bigquery.load_data_to_gcs manual__2023-05-27T03:11:58.683735+00:00 [queued]>
+[2023-05-27T03:40:15.896+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: networkrail_movements_to_gcs_and_then_bigquery.load_data_to_gcs manual__2023-05-27T03:11:58.683735+00:00 [queued]>
+[2023-05-27T03:40:15.898+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 1
+[2023-05-27T03:40:15.989+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): load_data_to_gcs> on 2023-05-27 03:11:58.683735+00:00
+[2023-05-27T03:40:16.071+0000] {standard_task_runner.py:57} INFO - Started process 1616 to run task
+[2023-05-27T03:40:16.094+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'networkrail_movements_to_gcs_and_then_bigquery', 'load_data_to_gcs', 'manual__2023-05-27T03:11:58.683735+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/networkrail_movements_to_gcs_and_then_bigquery.py', '--cfg-path', '/tmp/tmp2z33g8e_']
+[2023-05-27T03:40:16.100+0000] {standard_task_runner.py:85} INFO - Job 6: Subtask load_data_to_gcs
+[2023-05-27T03:40:16.722+0000] {task_command.py:410} INFO - Running <TaskInstance: networkrail_movements_to_gcs_and_then_bigquery.load_data_to_gcs manual__2023-05-27T03:11:58.683735+00:00 [running]> on host 57c9ec5d8264
+[2023-05-27T03:40:17.703+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Skooldio' AIRFLOW_CTX_DAG_ID='networkrail_movements_to_gcs_and_then_bigquery' AIRFLOW_CTX_TASK_ID='load_data_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2023-05-27T03:11:58.683735+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-27T03:11:58.683735+00:00'
+[2023-05-27T03:40:17.711+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/networkrail_movements_to_gcs_and_then_bigquery.py", line 92, in _load_data_to_gcs
+    service_account_info_gcs = json.load(open(KEYFILE))
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/aesthetic-kite-381909-3752b14a3dbb-day3-gcs-bigquery.json'
+[2023-05-27T03:40:17.858+0000] {taskinstance.py:1373} INFO - Marking task as FAILED. dag_id=networkrail_movements_to_gcs_and_then_bigquery, task_id=load_data_to_gcs, execution_date=20230527T031158, start_date=20230527T034015, end_date=20230527T034017
+[2023-05-27T03:40:17.980+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 6 for task load_data_to_gcs ([Errno 2] No such file or directory: '/opt/airflow/aesthetic-kite-381909-3752b14a3dbb-day3-gcs-bigquery.json'; 1616)
+[2023-05-27T03:40:18.056+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-27T03:40:18.282+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

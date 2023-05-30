@@ -1,0 +1,101 @@
+# version: 2
+
+# models:
+#   - name: stg_networkrail__movements
+#     description: Staging model for Network Rail movement data
+#     columns:
+#       - name: event_type
+#         description: Event type
+#         tests:
+#           - not_null
+#           - accepted_values:
+#               values: ['ARRIVAL', 'DEPARTURE']
+#           - dbt_expectations.expect_column_to_exist
+#           - dbt_expectations.expect_column_values_to_be_of_type:
+#               column_type: string
+#       - name: delay_monitoring_point
+#         description: delay monitoring point
+#         tests:
+#           - not_null
+#           - accepted_values:
+#               values: [true, false]
+#           - dbt_expectations.expect_column_to_exist
+#           - dbt_expectations.expect_column_values_to_be_of_type:
+#               column_type: boolean
+#       - name: train_terminated
+#         description: Train Terminate status
+#         tests:
+#           - not_null
+#           - accepted_values:
+#               values: [true, false]
+#           - dbt_expectations.expect_column_to_exist
+#           - dbt_expectations.expect_column_values_to_be_of_type:
+#               column_type: boolean
+#       - name: offroute_ind
+#         description: Set to "false" if this report is for a location in the schedule, or "true" if it is not
+#         tests:
+#           - not_null
+#           - accepted_values:
+#               values: [true, false]
+#           - dbt_expectations.expect_column_to_exist
+#           - dbt_expectations.expect_column_values_to_be_of_type:
+#               column_type: boolean
+#       - name: auto_expected
+#         description: Set to "true" if an automatic report is expected for this location, otherwise "false"
+#         tests:
+#           - not_null
+#           - accepted_values:
+#               values: [true, false]
+#           - dbt_expectations.expect_column_to_exist
+#           - dbt_expectations.expect_column_values_to_be_of_type:
+#               column_type: boolean
+#       - name: actual_timestamp_utc
+#         description: Actual timestamp in UTC
+#         tests:
+#           - not_null
+#           - dbt_expectations.expect_column_to_exist
+#           - dbt_expectations.expect_column_values_to_be_of_type:
+#               column_type: timestamp
+#       - name: gbtt_timestamp_utc
+#         description: GBTT timestamp in UTC
+#         tests:
+#           - not_null
+#           - dbt_expectations.expect_column_to_exist
+#           - dbt_expectations.expect_column_values_to_be_of_type:
+#               column_type: timestamp
+#       - name: planned_timestamp_utc
+#         description: Planned timestamp in UTC
+#         tests:
+#           - not_null
+#           - dbt_expectations.expect_column_to_exist
+#           - dbt_expectations.expect_column_values_to_be_of_type:
+#               column_type: timestamp
+#       - name: original_loc_timestamp_utc
+#         description: Original Loc timestamp in UTC
+#         tests:
+#           - not_null
+#           - dbt_expectations.expect_column_to_exist
+#           - dbt_expectations.expect_column_values_to_be_of_type:
+#               column_type: timestamp
+version: 2
+
+models:
+  - name: stg_networkrail__movements
+    description: Staging model for Network Rail movement data
+    columns:
+      - name: event_type
+        description: Event type
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ARRIVAL', 'DEPARTURE']
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: actual_timestamp_utc
+        description: Actual timestamp in UTC
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
